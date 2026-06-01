@@ -3,7 +3,7 @@
 
 ## *Модули* :
 
-+ модуль [main.py](src/main.py) содержит классы
++ модуль [classes.py](src/classes.py) содержит классы
 ````
 class Product(name=str, description=str, price=float, quantity=int)
 

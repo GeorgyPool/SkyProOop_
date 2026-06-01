@@ -1,6 +1,6 @@
 import os
 
-from src.main import Category, Product
+from src.classes import Category, Product
 from src.read_json import read_file_json
 
 
