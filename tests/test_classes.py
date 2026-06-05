@@ -5,10 +5,10 @@ def test_product(prod_one):
     assert prod_one.quantity == 10
 
 
-def test_category_first(category_first, category_second):
-    assert category_first.name == "Smart tv"
-    assert category_first.description == "looks great"
-    assert len(category_first.products) == 2
+def test_category(category_first, str_category_first, category_second):
+    assert category_first.name == "tv"
+    assert category_first.description == "ok"
+    assert str_category_first == "TV, 1500.0руб, Остаток: 14\n"
 
     assert category_first.category_count == 2
     assert category_second.category_count == 2
