@@ -1,4 +1,4 @@
-from src.classes import Product, Category
+from src.classes import Product, Category, IteratorCategory
 
 if __name__ == '__main__':
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
@@ -22,3 +22,10 @@ if __name__ == '__main__':
     print(product1 + product2)
     print(product1 + product3)
     print(product2 + product3)
+
+    # доп задание
+    r = IteratorCategory(category1)
+    print(next(r))
+    print(next(r))
+    print(next(r))
+    print(next(r, "список закончился"))
