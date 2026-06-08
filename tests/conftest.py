@@ -1,28 +1,33 @@
 import pytest
 
-from src.classes import Product, Category
+from src.classes import Category, Product
 
 
+# fixture для read_json.py
 @pytest.fixture
 def return_done_js_list():
     return [{"tests": {"hello": "world"}}]
 
 
+# fixture для класса Product
 @pytest.fixture
 def prod_one():
     return Product(name="Patato", description="very yammy", price=80.0, quantity=10)
 
 
+# fixture для класса Category
 @pytest.fixture
-def category_first():
-    return Category(
-        name="Smart tv",
-        description="looks great",
-        products=[
-            Product(name="TV", description="its ok", price=1500.0, quantity=4),
-            Product(name="Phone", description="looks great", price=150.0, quantity=10),
-        ],
-    )
+def category_first() -> Category:
+    pr_1 = Product.new_product({"name": "TV", "description": "its ok", "price": 1500.0, "quantity": 4})
+    pr_2 = Product.new_product({"name": "TV", "description": "looks great", "price": 150.0, "quantity": 10})
+    cat_1 = Category("tv", "ok", [pr_1])
+    cat_1.add_product(pr_2)
+    return cat_1
+
+
+@pytest.fixture
+def str_category_first(category_first):
+    return category_first.products
 
 
 @pytest.fixture
@@ -34,6 +39,7 @@ def category_second():
     )
 
 
+# fixture для utils.py
 @pytest.fixture
 def list_to_records_class():
     return [
