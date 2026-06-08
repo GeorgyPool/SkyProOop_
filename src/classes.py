@@ -29,6 +29,13 @@ class Product:
         else:
             self.__price = amount
 
+    def __str__(self):
+        return f"{self.name}, {self.__price}руб, Остаток: {self.quantity}"
+
+    def __add__(self, other):
+        result = self.__price * self.quantity + other.__price * other.quantity
+        return result
+
 
 class Category:
     name: str
@@ -62,3 +69,7 @@ class Category:
         for pr in self.__products:
             prod += f"{pr.name}, {pr.price}руб, Остаток: {pr.quantity}\n"
         return prod
+
+    def __str__(self):
+        count_prod = sum(x.quantity for x in self.__products)
+        return f"{self.name}, количество продуктов: {count_prod}"
