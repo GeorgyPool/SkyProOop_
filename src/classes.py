@@ -67,28 +67,9 @@ class Category:
     def products(self):
         prod = ""
         for pr in self.__products:
-            prod += f"{pr.name}, {pr.price}руб, Остаток: {pr.quantity}\n"
+            prod += f"{str(pr)}\n"
         return prod
 
     def __str__(self):
         count_prod = sum(x.quantity for x in self.__products)
         return f"{self.name}, количество продуктов: {count_prod}"
-
-
-#доп задание:
-class IteratorCategory:
-    def __init__(self, data):
-        self.data = data
-        self.index = 0
-
-    def __iter__(self):
-        self.index = 0
-        return self
-
-    def __next__(self):
-        if self.index < len(self.data._Category__products):
-            result = self.data._Category__products[self.index]
-            self.index += 1
-            return result
-        else:
-            raise StopIteration
