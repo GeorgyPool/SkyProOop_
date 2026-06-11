@@ -52,16 +52,19 @@ class Category:
         Category.product_count += len(products)
 
     def add_product(self, prod):
-        find = False
-        for pr in self.__products:
-            if pr.name == prod.name:
-                pr.quantity += prod.quantity
-                pr.price = max(pr.price, prod.price)
-                find = True
-                break
-        if not find:
-            self.__products.append(prod)
-        Category.product_count += 1
+        if isinstance(prod, Product):
+            find = False
+            for pr in self.__products:
+                if pr.name == prod.name:
+                    pr.quantity += prod.quantity
+                    pr.price = max(pr.price, prod.price)
+                    find = True
+                    break
+            if not find:
+                self.__products.append(prod)
+            Category.product_count += 1
+        else:
+            raise TypeError
 
     @property
     def products(self):
