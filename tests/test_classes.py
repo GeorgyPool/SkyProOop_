@@ -23,9 +23,11 @@ def test_category(category_first, str_category_first, category_second):
     assert category_first.name == "tv"
     assert category_first.description == "ok"
     assert str_category_first == "TV, 1500.0руб, Остаток: 14\n"
+    assert str(category_first) == "tv, количество продуктов: 14"
 
     assert category_first.category_count == 2
     assert category_second.category_count == 2
+    assert str(category_second) == "Q-tv, количество продуктов: 6"
 
     assert category_second.product_count == 3
 
@@ -37,3 +39,4 @@ def test_add_product_category():
     cat_one = Category(name="any", description="nice item", products=[item_1])
     cat_one.add_product(item_2)
     assert cat_one.products == "timer, 10.0руб, Остаток: 5\nhelper, 10.0руб, Остаток: 5\n"
+    assert item_1 + item_2 == 100
