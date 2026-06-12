@@ -1,6 +1,7 @@
 import pytest
 
-from src.classes import Category, Product
+from src.product import Product
+from src.category import Category
 
 
 # fixture для read_json.py
