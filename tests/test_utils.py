@@ -6,7 +6,10 @@ def test_records_class_is_positive(list_to_records_class):
     result = records_class_category(list_to_records_class)
     assert isinstance(result, list)
     assert result[0].name == "Смартфоны"
-    assert result[0].description == "Смартфоны, как средство"
+    assert (
+        result[0].description
+        == "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни"
+    )
 
 
 # Проверка records_class что при, передачи пустого списка возвращает пустой список
