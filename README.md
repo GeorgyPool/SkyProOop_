@@ -3,7 +3,7 @@
 
 ## *Модули* :
 
-+ модуль [classes.py](src/classes.py) содержит классы
++ модуль [category.py](src/category.py) содержит класс Product
 ````
 class Product(name=str, description=str, price=float, quantity=int)
 методы:
@@ -16,7 +16,10 @@ price -> price
 
 @price.setter - устанавливает новый прайс на продукт
 price = 100 
+````
 
++ модуль [category.py](src/category.py) - содержит класс Category
+````
 class Category:
 name: str
     description: str
@@ -31,11 +34,38 @@ add_product(prod) - добавляет новй продукт к уже сущ�
 @property
 products - возвращает строки из списака Category.__products[list]
 ````
+
++ модуль [smartphone.py](src/smartphone.py) - содержит класс Smartphone
+````
+Класс Smartphone дочерний класс класса Product
+
+class Smartphone(Product)
+    def __init__(self, name, description, price, quantity, efficiency, model, memory, color):
+        super().__init__(name, description, price, quantity)
+        self.efficiency = efficiency
+        self.model = model
+        self.memory = memory
+        self.color = color
+````
+
++ модуль [lawn_grass.py](src/lawn_grass.py) - содержит класс LawnGrass
+````
+Класс LawnGrass дочерний класс класса Product
+
+class LawnGrass(product)
+    def __init__(self, name, description, price, quantity, country, germination_period, color):
+        super().__init__(name, description, price, quantity)
+        self.country = country
+        self.germination_period = germination_period
+        self.color = color
+````
+
 + модуль [read_json.py](src/read_json.py) читает JSON-файлы
 ````
 read_file_json(принимает путь до файла и возвращает список python, 
 если фаил не найден возвращает пустой список) -> list[dict] | list[]
 ````
+
 + модуль [utils.py](src/utils.py) записывает объекты класса Category в список
 ````
 records_class_category(list[dict]) -> list[Category] | list[]-если передан пустой список
@@ -43,8 +73,11 @@ records_class_category(list[dict]) -> list[Category] | list[]-если пере�
 
 # ПАПКА TESTS:
 Содержит тесты для модулей:
-+ [classes.py](src/classes.py) - [test_classes.py](tests/test_classes.py)
++ [category.py](src/category.py) - [test_category.py](tests/test_category.py)
++ [lawn_grass.py](src/lawn_grass.py) - [test_lawn_grass.py](tests/test_lawn_grass.py)
++ [product.py](src/product.py)[utils.py](src/utils.py) - [test_product.py](tests/test_product.py)
 + [read_json.py](src/read_json.py) - [test_read_json.py](tests/test_read_json.py)
++ [smartphone.py](src/smartphone.py) - [test_smartphone.py](tests/test_smartphone.py)
 + [utils.py](src/utils.py) - [test_utils.py](tests/test_utils.py)
 ````
 для запуска тестов установить pytest:
