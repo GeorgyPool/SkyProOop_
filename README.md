@@ -3,6 +3,26 @@
 
 ## *Модули* :
 
++ модуль [base_product.py](src/base_product.py) - содержит абстрактный класс
+````
+BaseProduct- абстрактный клас для дочернего класса Product
+@abstractmethod
+def price(self)
+
+@abstractmethod
+def new_product(self, dict_prod)
+````
+
++ модуль [print_miksin.py](src/print_miksin.py) - содержит класс миксин для дочернего класса Product
+````
+MixinPrint:
+def __init__(self)
+    self
+    def __repr__(self):
+        return f"{self.__class__.__name__} ({self.name}, 
+        {self.description}, {self.price}, {self.quantity})"
+````
+
 + модуль [category.py](src/category.py) содержит класс Product
 ````
 class Product(name=str, description=str, price=float, quantity=int)
