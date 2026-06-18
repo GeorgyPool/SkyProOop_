@@ -1,3 +1,5 @@
+import pytest
+
 from src.product import Product
 
 """ Тесты для класса Product"""
@@ -43,3 +45,9 @@ def test_magic_method_add_product(product_one, product_two):
     """Тест на корректность сложения магического метода __add__"""
     result = product_one + product_two
     assert result == 41000.0
+
+
+def test_item_rais_fail_is_zero_quantity():
+    """При, передачи продукта с нулевым количеством возникает ошибка ValueError"""
+    with pytest.raises(ValueError):
+        Product("Phone", "Favorite", 2500.0, 0)

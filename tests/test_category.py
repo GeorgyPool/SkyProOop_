@@ -62,3 +62,15 @@ def test_not_correct_type_add(category_one):
     дочерний класс"""
     with pytest.raises(TypeError):
         assert category_one.add_product([])
+
+
+def test_middle_price_product_correct(product_one, product_two):
+    """Тест на положительный результат от получения средней суммы в списке продуктов self.__products"""
+    cat1 = Category("Phone", "Телефон в современном мире очень востребован", [product_one, product_two])
+    assert cat1.middle_price() == 3250.0
+
+
+def test_middle_price_product_is_zero_division():
+    """Тест что, при, передачи пустого списка в атрибут products возвращает 0"""
+    cat1 = Category("Phone", "Телефон в современном мире очень востребован", [])
+    assert cat1.middle_price() == 0
